@@ -1,6 +1,6 @@
 package com.wedul.mapstructtest;
 
-import com.wedul.mapstructtest.dto.Account;
+import com.wedul.mapstructtest.dto.AccountResponse;
 import com.wedul.mapstructtest.entity.AccountEntity;
 import com.wedul.mapstructtest.mapper.AccountMapper;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AccountMappingTest {
+public class AccountResponseMappingTest {
 
     AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
 
@@ -21,12 +21,12 @@ public class AccountMappingTest {
                 .build();
 
         // when
-        Account account = INSTANCE.domainToEntity(accountEntity);
+        AccountResponse accountResponse = INSTANCE.domainToEntity(accountEntity);
 
         // then
-        assertThat(account.getAge()).isEqualTo(accountEntity.getAge());
-        assertThat(account.getName()).isEqualTo(accountEntity.getName());
-        assertThat(account.getHomeNumber()).isEqualTo(accountEntity.getHomeTel());
-        assertThat(account.getLocation()).isEqualTo(accountEntity.getAddress());
+        assertThat(accountResponse.getAge()).isEqualTo(accountEntity.getAge());
+        assertThat(accountResponse.getName()).isEqualTo(accountEntity.getName());
+        assertThat(accountResponse.getHomeNumber()).isEqualTo(accountEntity.getHomeTel());
+        assertThat(accountResponse.getLocation()).isEqualTo(accountEntity.getAddress());
     }
 }
